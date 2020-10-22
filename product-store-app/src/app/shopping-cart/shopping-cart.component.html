@@ -1,0 +1,97 @@
+
+<div class="col-md-11">
+<div class="panel panel-primary">
+  <div class="panel-heading">Buy Item</div>
+  <div class="panel-body">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3">Item</div>
+        <div class="col-md-2">Unit Type</div>
+        <div class="col-md-1">Qty</div>
+        <div class="col-md-2">Single Unit Price</div>
+        <div class="col-md-2">Amount</div>
+        <div class="col-md-1"></div>
+      </div>
+      <br>
+
+      <form [formGroup]="itemForm">
+        <div class="row">
+          <div class="col-md-3">
+            <select (change)="calculateActualPrice()" formControlName="itemId" class="form-control">
+              <option value="">--Select Item--</option>
+              <option [value]="item.id" *ngFor="let item of items">{{item.description}}</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select (change)="calculateActualPrice()" formControlName="unitType" class="form-control">
+              <option value="">--Select Unit type--</option>
+              <option value="Carton">carton</option>
+              <option value="Single">Single Unit</option>
+            </select>
+          </div>
+          <div class="col-md-1">
+            <input (change)="calculateActualPrice()"
+                   (focusout)="calculateActualPrice()"
+                   formControlName="qty" type="number" class="form-control"/>
+          </div>
+
+          <div class="col-md-2">
+            <span>{{actualPrice}}</span>
+          </div>
+
+          <div class="col-md-2">
+            <span>{{lineAmount}}</span>
+          </div>
+
+          <div class="col-md-1">
+            <button [disabled]="actualPrice==='N/A' || actualPrice=== 'Calculating..'"
+                    (click)="addToCart()" class="btn btn-primary sm">Add to Cart
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <br>
+
+      <h5>Your cart - Item(s): {{cart.length}}</h5>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table table-responsive">
+            <tr>
+              <td width="40%">Item</td>
+              <td>Unit Type</td>
+              <td>Qty</td>
+              <td>Unit Price(Actual)</td>
+              <td align="right" width="20%">Amount</td>
+            </tr>
+
+            <tr *ngFor="let row of cart">
+              <td>{{row.description}}</td>
+              <td>{{row.unitType}}</td>
+              <td>{{row.qty | number}}</td>
+              <td align="right">{{row.unitPrice | number}}</td>
+              <td align="right">{{row.lineAmount | number}}</td>
+            </tr>
+            <tfoot>
+            <td width="40%">Total</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td align="right" width="20%">{{cartAmount| number}}</td>
+            </tfoot>
+          </table>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
