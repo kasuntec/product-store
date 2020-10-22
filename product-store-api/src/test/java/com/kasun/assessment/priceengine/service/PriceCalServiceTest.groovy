@@ -2,6 +2,7 @@ package com.kasun.assessment.priceengine.service
 
 import com.kasun.assessment.priceengine.entity.Item
 import com.kasun.assessment.priceengine.repository.ItemRepository
+import com.kasun.assessment.priceengine.repository.ParametersRepository
 import com.kasun.assessment.priceengine.service.impl.PriceCalServiceImpl
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
@@ -13,10 +14,12 @@ import org.springframework.dao.InvalidDataAccessApiUsageException
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.transaction.annotation.Transactional
 
 import javax.persistence.EntityNotFoundException
 
 @SpringBootTest
+@Transactional
 class PriceCalServiceTest extends spock.lang.Specification {
 
     @Autowired
