@@ -1,0 +1,27 @@
+# App configs - endpoints
+app:
+  endpoint:
+    api: /api/
+
+# Platform configs
+spring:
+  application:
+    name: item-api
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/item_store?createDatabaseIfNotExist=true
+    username: root
+    password: P@$$w0rd#123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    platform: org.hibernate.dialect.MySQL5Dialect
+    initialization-mode: always
+    continue-on-error: true
+    data: data.sql
+
+
+
+
