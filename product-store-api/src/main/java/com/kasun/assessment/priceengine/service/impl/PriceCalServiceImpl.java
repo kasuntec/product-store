@@ -35,13 +35,11 @@ public class PriceCalServiceImpl implements PriceCalService {
         Double discountFor3carton
                 = parametersRepository.getOne(ParametersKeys.DIS_FOR_ABOVE_3_CARTON_PER.getValue()).getValue();
 
-//        Double singleUnitIncrese = 1.3;
-//        Double discountFor3carton = 10.00;
         Double totalDiscountAmount = 0.00;
 
         Integer noOfcarton = 0;
 
-        if(qty == null || qty<1) {//check qty is less than 1
+        if(qty == null || qty<1) {//check qty null or less than 1
             return actualUnitPrice;
         }
 
@@ -83,7 +81,7 @@ public class PriceCalServiceImpl implements PriceCalService {
         }
 
 
-        //round off for 2 decimal
+        // calculate unit price
         actualUnitPrice = totalAmount / qty;
         return actualUnitPrice;
     }

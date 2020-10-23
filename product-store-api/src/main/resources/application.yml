@@ -12,6 +12,7 @@ spring:
     generate-ddl: true
     show-sql: true
 
+#database details
   datasource:
     url: jdbc:mysql://localhost:3307/item_store?createDatabaseIfNotExist=true
     username: root

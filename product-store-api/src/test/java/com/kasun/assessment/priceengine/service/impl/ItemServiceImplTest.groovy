@@ -1,8 +1,6 @@
 package com.kasun.assessment.priceengine.service.impl
 
-import com.kasun.assessment.priceengine.dto.PriceList
-import com.kasun.assessment.priceengine.entity.Item
-import com.kasun.assessment.priceengine.repository.ItemRepository
+
 import com.kasun.assessment.priceengine.service.ItemService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
