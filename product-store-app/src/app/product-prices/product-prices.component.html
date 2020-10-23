@@ -1,10 +1,10 @@
 
 <div class="col-md-11">
   <div class="panel panel-primary">
-    <div class="panel-heading">Price List According to Buy Qty</div>
+    <div class="panel-heading">Price list according to  Qty</div>
     <div class="panel-body">
       <div class="col-md-12">
-        <p><a class="btn btn-info btn-lg" routerLink="/buy" role="button"> Go Buy Products</a></p>
+        <p><a class="btn btn-info btn-lg" routerLink="/buy" role="button"> Go to Buy Products</a></p>
         <br>
         <form class="form-group" name="item">
         <div class="row">
@@ -13,7 +13,7 @@
           <div class="col-md-2">
             <label >Item</label>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-4">
 
             <select (change)="listAllPriceByItem(selectedValue)"
                     name="item" [(ngModel)]="selectedValue" class="form-control">
@@ -21,6 +21,9 @@
               <option [value]="item.id" *ngFor="let item of items">{{item.description}}</option>
             </select>
 
+          </div>
+          <div class="col-md-5">
+            <p>Select item then you see price list according qty</p>
           </div>
 
 
